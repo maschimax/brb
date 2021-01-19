@@ -42,8 +42,8 @@ import math
 
 # ---------------------------------------------------------------------
 # User inputs
-curdir_path = '/Users/philippnoodt/VirtualBox_VMs/Win10/Win10_SharedFolder/MA/coding/Bruno/git/brb/'
-filename = 'csv_HPO_BeliefRuleBase_wKO_v16.csv_RefVals_AntImp-1Mglobscaled.csv'
+curdir_path = '.'
+filename = 'csv_HPO_BeliefRuleBase_wKO_v15.csv_RefVals_AntImp-1Mglobscaled.csv'
 recommendation = 'HPO technique'    # 'ML algorithm'
 
 # Automated execution testing
