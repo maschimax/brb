@@ -45,7 +45,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 # ---------------------------------------------------------------------
 # specify name of excel rulebase to use
-filename = 'RULE_BASE_01.csv'
+filename = 'BenchmarkingRuleBase_v08_overall_wAP.csv'
 raw_filepath = os.path.join(os.curdir, 'excel_rulebases/' + filename)
 excel_rulebase = pd.read_csv(raw_filepath, sep=';', header=None)
 

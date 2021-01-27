@@ -148,3 +148,6 @@ dmypy.json
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
+max_results/
+csv_rulebases/
+excel_rulebases/

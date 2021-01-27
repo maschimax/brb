@@ -43,7 +43,7 @@ import math
 # ---------------------------------------------------------------------
 # User inputs
 curdir_path = '.'
-filename = 'csv_HPO_BeliefRuleBase_wKO_v15.csv_RefVals_AntImp-1Mglobscaled.csv'
+filename = 'csv_BenchmarkingRuleBase_v07_low_theta_AP.csv_RefVals_AntImp-1Mglobscaled.csv'
 recommendation = 'HPO technique'    # 'ML algorithm'
 
 # Automated execution testing
@@ -499,9 +499,9 @@ def boxplot_custominputs_results(data: List[any], title, y, rec, show_top):
         plt.show()
 
     elif HPO_3UCs:
-        titles = ['Use case 1:\nRandom Forest, TCT 10min, 1 worker',
-                  'Use case 2:\nRandom Forest, TCT 8h, 8 workers',
-                  'Use case 3:\nKNN, TCT 2h, transparency wished',
+        titles = ['Use case 1: Final Performance',
+                  'Use case 2: Anytime Performance',
+                  'Use case 3: Robustness',
                   '-',
                   ]
         for idx, result in enumerate(data):
@@ -1755,8 +1755,69 @@ inputs_ML_BRB_3UCs_v10_2 = {
         ['Part Failure', 'Part Failure', 'Part Failure', ''],   # Image Recognition
 }
 
-
-
+# inputs RuleType testing (kjn-mm)
+inputs_rule_type_01 = {
+    'A_Production application area':
+        ['Predictive Maintenance', 'Predictive Maintenance', 'Predictive Maintenance'],
+    'A_ML task':
+        ['Regression', 'Regression', 'Regression' ],
+    'A_Detailed ML task':
+        ['Prediction or Remaining Useful Lifetime', 'Prediction or Remaining Useful Lifetime', 'Prediction or Remaining Useful Lifetime'],
+    'A_Loss function':
+        ['Customized', 'Customized', 'Customized'],
+    'A_Special properties of loss function':
+        ['Exponential', 'Exponential', 'Exponential'],
+    'A_Training Technique':
+        ['Offline', 'Offline', 'Offline' ],
+    'A_Machine Learning Algorithm':
+        ['XGBoost', 'XGBoost', 'XGBoost' ],
+    'A_Dimensionality of HPs':
+        ['9', '9', '9'],
+    'A_Conditional HP space':
+        ['yes', 'yes', 'yes'],
+    'A_HP datatypes':
+        ['[continuous, discrete, nominal]', '[continuous, discrete, nominal]', '[continuous, discrete, nominal]'],
+    'A_Availability of a warm-start HP configuration':
+        ['no', 'no', 'no'],
+    'A_Running time per trial [s]':
+        ['0.62', '0.62', '0.62'],
+    'A_Total Computing Time [s]':
+        ['83.88', '83.88', '83.88'],
+    'A_Number of maximum function evaluations/ trials budget':
+        ['200', '200', '200'],
+    'A_Input Data':
+        ['Tabular Data', 'Tabular Data', 'Tabular Data'],
+    'A_#Instances training dataset':
+        ['16584', '16584', '16584'],
+    'A_Ratio training to test dataset':
+        ['01:04', '01:04', '01:04'],
+    'A_Hardware: Number of workers/kernels for parallel computing':
+        ['1', '1', '1'],
+    'A_CPU / GPU':
+        ['CPU', 'CPU', 'CPU'],
+    'A_UR: Computer operating system':
+        ['Linux', 'Linux', 'Linux'],
+    'A_UR: quality demands':
+        ['high', '', ''],
+    'A_UR: Anytime Performance':
+        ['', 'high', ''],
+    'A_UR: Robustness':
+        ['', '', 'high'],
+    'A_Obtainability of gradients':
+        ['', '', ''],
+    'A_Obtainability of good approximate':
+        ['', '', ''],
+    'A_Supports parallel evaluations':
+        ['', '', ''],
+    "A_User's programming ability":
+        ['low', '', ''],
+    "A_UR: need for model transparency":
+        ['high', '', ''],
+    'A_UR: Availability of a well documented library':
+        ['', 'high', ''],
+    'A_Noise in dataset':
+        ['', '', 'high']
+}
 
 if __name__ == "__main__":
 
@@ -1772,7 +1833,6 @@ if __name__ == "__main__":
     random_existing_input(model, num_runs=runs, incomplete=incompleteness, rec=recommendation)
 
     # Custom input testing
-    custom_input(model, input=inputs_HPO_BRB_VAL_v16, rec='HPO technique', show_top=num_algs_in_plot)    # or 'ML algorithm', 'HPO technique', 'all'
-
+    custom_input(model, input=inputs_rule_type_01, rec='HPO technique', show_top=num_algs_in_plot)    # or 'ML algorithm', 'HPO technique', 'all'
 
     print('success')
